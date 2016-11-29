@@ -171,7 +171,7 @@ class RequiredInput extends React.Component {
                 value={this.props.value}
                 onChange={(e) => this.handleChange(e)}
         />
-        {errors &&
+        {errors.required &&
           <p className="help-block error-missing">{this.props.errorMessage}</p>
         }
       </div>
