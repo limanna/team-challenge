@@ -112,7 +112,7 @@ class EmailInput extends React.Component {
   render() {
     var errors = this.validate(this.props.value); //need to validate again, but at least isolated
     var inputStyle = 'form-group';
-    if(!errors.isValid) inputStyle += ' invalid'; //add styling rule
+    if(!errors.isValid) inputStyle += 'invalid'; //add styling rule
 
     return (
       <div className={inputStyle}>
@@ -124,7 +124,7 @@ class EmailInput extends React.Component {
         {errors.missing &&
           <p className="help-block error-missing">we need to know your email address</p>
         }
-        {errors.invalid &&
+        {errors.invalidEmail &&
           <p className="help-block error-invalid">this is not a valid email address</p>
         }
       </div>
