@@ -125,7 +125,11 @@ class EmailInput extends React.Component {
   render() {
     var errors = this.validate(this.props.value); //need to validate again, but at least isolated
     var inputStyle = 'form-group';
+<<<<<<< HEAD
+    if(!errors.isValid) inputStyle += 'invalid'; //add styling rule
+=======
     if (!errors.isValid) inputStyle += ' invalid'; //add styling rule
+>>>>>>> 2c594bbe66d626c3535218f6d5c2a2ec48d40b9b
 
     return (
       <div className={inputStyle}>
@@ -137,7 +141,7 @@ class EmailInput extends React.Component {
         {errors.missing &&
           <p className="help-block error-missing">we need to know your email address</p>
         }
-        {errors.invalid &&
+        {errors.invalidEmail &&
           <p className="help-block error-invalid">this is not a valid email address</p>
         }
       </div>
@@ -180,11 +184,19 @@ class RequiredInput extends React.Component {
     return (
       <div className={inputStyle}>
         <label htmlFor={this.props.field}>{this.props.label}</label>
+<<<<<<< HEAD
+        <input type={this.props.type} id={this.props.id} name={this.props.field}className="form-control" placeholder={this.props.placeholder}
+                value={this.props.value}
+                onChange={(e) => this.handleChange(e)}
+        />
+        {errors.required &&
+=======
         <input type={this.props.type} id={this.props.id} name={this.props.field} className="form-control" placeholder={this.props.placeholder}
           value={this.props.value}
           onChange={(e) => this.handleChange(e)}
           />
         {errors &&
+>>>>>>> 2c594bbe66d626c3535218f6d5c2a2ec48d40b9b
           <p className="help-block error-missing">{this.props.errorMessage}</p>
         }
       </div>
