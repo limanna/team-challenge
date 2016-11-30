@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-scripts": "0.7.0"
+    "react-scripts": "0.7.0",
+    "sinon": "^1.17.6"
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
