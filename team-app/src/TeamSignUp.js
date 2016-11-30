@@ -27,18 +27,16 @@ class SignUpForm extends React.Component {
 
   //callback for the reset button
   handleReset(event) {
-<<<<<<< HEAD
     // console.log('Reset!');
     // var emptyState = {};
-    var emptyState = {
-      email: {value: '', valid: false},
-      name: {value: '', valid: false},
-      dob: {value: '', valid: false},
-      password: {value: '', valid: false},
-      passwordConf: {value: '', valid: false}
-=======
+    // var emptyState = {
+    //   email: {value: '', valid: false},
+    //   name: {value: '', valid: false},
+    //   dob: {value: '', valid: false},
+    //   password: {value: '', valid: false},
+    //   passwordConf: {value: '', valid: false}
 
-    var emptyState = {};
+    // var emptyState = {};
 
     var emptyState = {
       email: { value: '', valid: false },
@@ -46,7 +44,6 @@ class SignUpForm extends React.Component {
       dob: { value: '', valid: false },
       password: { value: '', valid: false },
       passwordConf: { value: '', valid: false }
->>>>>>> a2449fb0caeb41a2c745600410358754651c8392
     };
     this.setState(emptyState);
   }

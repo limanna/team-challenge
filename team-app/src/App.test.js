@@ -1,6 +1,4 @@
 import React from 'react';
-import {shallow} from 'enzyme';
-import sinon from 'sinon';
 import ReactDOM from 'react-dom';
 import App from './App';
 import sinon from 'sinon';
