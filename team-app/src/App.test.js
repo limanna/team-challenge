@@ -132,6 +132,9 @@ describe('name input', () => {
     wrapper.find('#name').simulate('change', {target:{value: 'Dory'}});
     expect(spy.called).toEqual(true);
   });
+<<<<<<< HEAD
+})
+=======
 
 
 describe('<BirthdayInput /> component', () => {
@@ -184,10 +187,10 @@ describe('<BirthdayInput /> component', () => {
     it('should be enabled if all of the forms are valid', () => {
       const wrapper = mount(<TeamSignUp />);
       // valid email consts
-      const email = 'valid@gmail.com';
-      const name = 'validname';
+      const email = 'jonjewik@gmail.com';
+      const name = 'jonjewik';
       const dob = '1';
-      const password = 'password';
+      const password = 'helpme';
 
       // simulate valid inputs
       wrapper.find('#email').simulate('change', { target: { value: email } });
@@ -205,10 +208,10 @@ describe('<BirthdayInput /> component', () => {
     it('should be disabled if any of the forms are invalid', () => {
       const wrapper = mount(<TeamSignUp />);
       // valid email consts
-      const email = 'valid@gmail.com';
-      const name = 'validname';
+      const email = 'jonjewik';
+      const name = 'jonjewik';
       const dob = '1';
-      const password = 'password';
+      const password = 'helpme';
 
       // check email field
       wrapper.find('#email').simulate('change', { target: { value: 'INVALID EMAIL' } });
@@ -243,10 +246,10 @@ describe('<BirthdayInput /> component', () => {
       const wrapper = mount(<App />);
 
       // valid form consts
-      const email = 'valid@gmail.com';
-      const name = 'validname';
+      const email = 'jonjewik@gmail.com';
+      const name = 'jonjewik';
       const dob = '1';
-      const password = 'password';
+      const password = 'helpme';
 
       //simulate valid inputs
       wrapper.find('#email').simulate('change', { target: { value: email } });
@@ -266,10 +269,10 @@ describe('<BirthdayInput /> component', () => {
       const wrapper = mount(<App />);
 
       // valid form consts
-      const email = 'valid@gmail.com';
-      const name = 'validname';
+      const email = 'jonjewik@gmail.com';
+      const name = 'jonjewik';
       const dob = '1';
-      const password = 'password';
+      const password = 'helpme';
 
       //simulate valid inputs
       wrapper.find('#email').simulate('change', { target: { value: email } });
@@ -287,4 +290,8 @@ describe('<BirthdayInput /> component', () => {
 
 });
 });
+<<<<<<< HEAD
 >>>>>>> 76f7abbb719342a169e66926115324b758d8e9a9
+=======
+>>>>>>> f4d24274fb5789289baf936353ecca2779fbf3db
+>>>>>>> 8e0a4fafa709568d1cb93b9d8ac09c8dc390bb52
