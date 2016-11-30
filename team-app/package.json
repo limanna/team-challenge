@@ -3,8 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+<<<<<<< HEAD
     "react-scripts": "0.7.0",
     "sinon": "^1.17.6"
+=======
+    "react-addons-test-utils": "^15.4.1",
+    "react-scripts": "0.7.0"
+>>>>>>> 2c594bbe66d626c3535218f6d5c2a2ec48d40b9b
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
