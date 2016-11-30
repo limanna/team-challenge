@@ -23,5 +23,9 @@
     "eject": "react-scripts eject",
     "deploy": "gh-pages -d build"
   }
-
+  // ...
+  "scripts": {
+    // ...
+    "deploy": "gh-pages -d build"
+  }
 }
