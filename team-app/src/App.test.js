@@ -2,27 +2,13 @@ import React from 'react';
 import {shallow} from 'enzyme';
 import sinon from 'sinon';
 import ReactDOM from 'react-dom';
-<<<<<<< HEAD
 import { EmailInput, RequiredInput, BirthdayInput, PasswordConfirmationInput } from './TeamSignUp';
 import App from './TeamSignUp';
-import {shallow} from 'enzyme';
-import sinon from 'sinon';
-
-=======
-import App from './App';
-<<<<<<< HEAD
-import {SignUpForm, TeamSignUp, RequiredInput, PasswordConfirmationInput} from './TeamSignUp';
-=======
-import { shallow } from 'enzyme';
-import sinon from 'sinon';
->>>>>>> 2c594bbe66d626c3535218f6d5c2a2ec48d40b9b
->>>>>>> 76f7abbb719342a169e66926115324b758d8e9a9
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(<App />, div);
 });
-<<<<<<< HEAD
 
 describe('valid password confirmation', () => {
   var validSpy = sinon.spy(RequiredInput.prototype, 'validate');
@@ -65,21 +51,6 @@ describe('password confirmation component', () => {
     expect(validValue).toEqual(true);
   });
 });
-=======
-<<<<<<< HEAD
-const wrapper = shallow(<App />);
-
-/*describe('Email address', () => {
-  it('should have the correct format', () => {
-    const wrapper = shallow(<App />);
-    const input = wrapper.find('#email');
-    var whatWeGot = input.simulate('change', {target:{value:'b@b.com'}});
-    console.log(whatWeGot.toString());
-    var whatWeWant = '.com';
-    expect(whatWeGot).toContain(whatWeWant);
-  });
-});*/
-
 
 describe('email input', () => {
 
@@ -132,21 +103,19 @@ describe('name input', () => {
     wrapper.find('#name').simulate('change', {target:{value: 'Dory'}});
     expect(spy.called).toEqual(true);
   });
-<<<<<<< HEAD
 })
-=======
 
 
 describe('<BirthdayInput /> component', () => {
   it('should require birthday field', () => {
-    const wrapper = shallow(<BirthdayInput value='' />); // pass in a blank value prop
+    const wrapper = shallow(<BirthdayInput value='' />);
     expect(wrapper.find('.error-missing').text()).toEqual('we need to know your birthdate')
       && expect(wrapper.find('.error-invalid').length).toEqual(0)
       && expect(wrapper.find('.error-not-old').length).toEqual(0);
   });
 
   it('should require valid date', () => {
-    const wrapper = shallow(<BirthdayInput value='this is a string, not a date' />); // pass in a blank value prop
+    const wrapper = shallow(<BirthdayInput value='this is a string, not a date' />);
     expect(wrapper.find('.error-invalid').text()).toEqual("that isn't a valid date")
       && expect(wrapper.find('.error-missing').length).toEqual(0)
       && expect(wrapper.find('.error-not-old').length).toEqual(0);
@@ -165,12 +134,12 @@ describe('<BirthdayInput /> component', () => {
     wrapper = shallow(<BirthdayInput value='25 Mar 2015' />);
     expect(wrapper.find('.error-invalid').length).toEqual(0)
 
-    wrapper = shallow(<BirthdayInput value='Wednesday March 25 2015' />); // pass in a blank value prop
+    wrapper = shallow(<BirthdayInput value='Wednesday March 25 2015' />);
     expect(wrapper.find('.error-invalid').length).toEqual(0);
   });
 
   it('should require age of 13 or older', () => {
-    const wrapper = shallow(<BirthdayInput value='Mar 25 2015' />); // pass in a blank value prop
+    const wrapper = shallow(<BirthdayInput value='Mar 25 2015' />);
     expect(wrapper.find('.error-not-old').text()).toEqual("sorry, you must be at least 13 to sign up")
       && expect(wrapper.find('.error-missing').length).toEqual(0)
       && expect(wrapper.find('.error-invalid').length).toEqual(0);
@@ -186,13 +155,11 @@ describe('<BirthdayInput /> component', () => {
   describe('Submit button', () => {
     it('should be enabled if all of the forms are valid', () => {
       const wrapper = mount(<TeamSignUp />);
-      // valid email consts
       const email = 'jonjewik@gmail.com';
       const name = 'jonjewik';
       const dob = '1';
       const password = 'helpme';
 
-      // simulate valid inputs
       wrapper.find('#email').simulate('change', { target: { value: email } });
       wrapper.find('#name').simulate('change', { target: { value: name } });
       wrapper.find('#dob').simulate('change', { target: { value: dob } });
@@ -207,51 +174,42 @@ describe('<BirthdayInput /> component', () => {
 
     it('should be disabled if any of the forms are invalid', () => {
       const wrapper = mount(<TeamSignUp />);
-      // valid email consts
       const email = 'jonjewik';
       const name = 'jonjewik';
       const dob = '1';
       const password = 'helpme';
 
-      // check email field
       wrapper.find('#email').simulate('change', { target: { value: 'INVALID EMAIL' } });
       expect(wrapper.find('#submitButton').prop('disabled')).toEqual(true);
-      wrapper.find('#email').simulate('change', { target: { value: email } }); // change back to be valid
+      wrapper.find('#email').simulate('change', { target: { value: email } });
 
-      // check name field
       wrapper.find('#name').simulate('change', { target: { value: '' } });
       expect(wrapper.find('#submitButton').prop('disabled')).toEqual(true);
-      wrapper.find('#name').simulate('change', { target: { value: name } }); // change back to be valid
+      wrapper.find('#name').simulate('change', { target: { value: name } });
 
-      // check dob field
       wrapper.find('#dob').simulate('change', { target: { value: 'HI CAMERON' } });
       expect(wrapper.find('#submitButton').prop('disabled')).toEqual(true);
-      wrapper.find('#dob').simulate('change', { target: { value: dob } }); // change back to be valid
+      wrapper.find('#dob').simulate('change', { target: { value: dob } });
 
-      // check password field
       wrapper.find('#password').simulate('change', { target: { value: '' } });
       expect(wrapper.find('#submitButton').prop('disabled')).toEqual(true);
-      wrapper.find('#password').simulate('change', { target: { value: password } }); // change back to be valid
+      wrapper.find('#password').simulate('change', { target: { value: password } });
 
-      // check password conf field
       wrapper.find("#passwordConf").simulate('change', { target: { value: '' } });
       expect(wrapper.find('#submitButton').prop('disabled')).toEqual(true);
-      wrapper.find("#passwordConf").simulate('change', { target: { value: password } }); // change back to be valid
+      wrapper.find("#passwordConf").simulate('change', { target: { value: password } });
     })
 
     it('should handle submit callback in App (using sinon)', () => {
 
-      // set up a sinon spy on the handleSubmit callback of the app
       const handleSubmitSpy = sinon.spy(App.prototype, 'handleSubmit');
       const wrapper = mount(<App />);
 
-      // valid form consts
       const email = 'jonjewik@gmail.com';
       const name = 'jonjewik';
       const dob = '1';
       const password = 'helpme';
 
-      //simulate valid inputs
       wrapper.find('#email').simulate('change', { target: { value: email } });
       wrapper.find('#name').simulate('change', { target: { value: name } });
       wrapper.find('#dob').simulate('change', { target: { value: dob } });
@@ -260,21 +218,19 @@ describe('<BirthdayInput /> component', () => {
 
       wrapper.find('form').simulate('submit');
 
-      expect(handleSubmitSpy.called).toEqual(true); // check the sinon spy
-      expect(wrapper.find('.alert-success').length).toEqual(1); // check if the alert showed up
+      expect(handleSubmitSpy.called).toEqual(true);
+      expect(wrapper.find('.alert-success').length).toEqual(1);
 
     });
 
     it('should show the proper alert-success element when submit is clicked', () => {
       const wrapper = mount(<App />);
 
-      // valid form consts
       const email = 'jonjewik@gmail.com';
       const name = 'jonjewik';
       const dob = '1';
       const password = 'helpme';
 
-      //simulate valid inputs
       wrapper.find('#email').simulate('change', { target: { value: email } });
       wrapper.find('#name').simulate('change', { target: { value: name } });
       wrapper.find('#dob').simulate('change', { target: { value: dob } });
@@ -283,15 +239,10 @@ describe('<BirthdayInput /> component', () => {
 
       wrapper.find('form').simulate('submit');
 
-      expect(wrapper.find('.alert-success').length).toEqual(1); // check if the alert showed up
+      expect(wrapper.find('.alert-success').length).toEqual(1);
     });
   });
 
 
 });
-});
-<<<<<<< HEAD
->>>>>>> 76f7abbb719342a169e66926115324b758d8e9a9
-=======
->>>>>>> f4d24274fb5789289baf936353ecca2779fbf3db
->>>>>>> 8e0a4fafa709568d1cb93b9d8ac09c8dc390bb52
+
