@@ -66,7 +66,7 @@ class SignUpForm extends React.Component {
         {/* Submit Buttons */}
         <div className="form-group">
           <button id="resetButton" type="reset" className="btn btn-default" onClick={(e)=>this.handleReset(e)}>Reset</button> {' ' /*space*/}
-          <button id="submitButton" type="submit" className="btn btn-primary" disabled={buttonEnabled}>Sign Me Up!</button>
+          <button id="submitButton" type="submit" className="btn btn-primary" disabled={!buttonEnabled}>Sign Me Up!</button>
         </div>
 
       </form>
@@ -140,9 +140,9 @@ class RequiredInput extends React.Component {
   validate(currentValue){
     if(currentValue === ''){ //check presence
       return {required: true, isValid: false};
+    } else {
+        return {isValid: true}; //no errors
     }
-
-    return {isValid: true}; //no errors
   }  
   
   handleChange(event){  
@@ -162,7 +162,9 @@ class RequiredInput extends React.Component {
   render() {
     var errors = this.validate(this.props.value); //need to validate again, but at least isolated
     var inputStyle = 'form-group';
-    if(!errors.isValid) inputStyle += ' invalid';
+    if(!errors.isValid){
+        inputStyle += ' invalid'; 
+    }
 
     return (
       <div className={inputStyle}>
@@ -171,7 +173,7 @@ class RequiredInput extends React.Component {
                 value={this.props.value}
                 onChange={(e) => this.handleChange(e)}
         />
-        {errors &&
+        {errors.required &&
           <p className="help-block error-missing">{this.props.errorMessage}</p>
         }
       </div>
@@ -253,11 +255,12 @@ class BirthdayInput extends React.Component {
  */
 class PasswordConfirmationInput extends React.Component {
   validate(currentValue){
-    if(currentValue === '' || this.props.password === ''){ //check both entries
-      return {mismatched:true, isValid:false};
-    }    
+    if(currentValue !== this.props.password){ //check both entries
+      return {mismatched:true, isValid: true};
+    } else {   
 
-    return {isValid: true}; //no errors
+    return {mismatched:false, isValid: true}; //no errors
+    }
   }  
   
   handleChange(event){  
@@ -266,7 +269,7 @@ class PasswordConfirmationInput extends React.Component {
 
     //what to assign to parent's state
     var stateUpdate = {
-      'passConf': {
+      'passwordConf': {
         value:event.target.value,
         valid:isValid
       }
