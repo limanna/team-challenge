@@ -59,10 +59,10 @@ describe('<BirthdayInput /> component', () => {
     it('should be enabled if all of the forms are valid', () => {
       const wrapper = mount(<TeamSignUp />);
       // valid email consts
-      const email = 'valid@gmail.com';
-      const name = 'validname';
+      const email = 'jonjewik@gmail.com';
+      const name = 'jonjewik';
       const dob = '1';
-      const password = 'password';
+      const password = 'helpme';
 
       // simulate valid inputs
       wrapper.find('#email').simulate('change', { target: { value: email } });
@@ -80,10 +80,10 @@ describe('<BirthdayInput /> component', () => {
     it('should be disabled if any of the forms are invalid', () => {
       const wrapper = mount(<TeamSignUp />);
       // valid email consts
-      const email = 'valid@gmail.com';
-      const name = 'validname';
+      const email = 'jonjewik';
+      const name = 'jonjewik';
       const dob = '1';
-      const password = 'password';
+      const password = 'helpme';
 
       // check email field
       wrapper.find('#email').simulate('change', { target: { value: 'INVALID EMAIL' } });
@@ -118,10 +118,10 @@ describe('<BirthdayInput /> component', () => {
       const wrapper = mount(<App />);
 
       // valid form consts
-      const email = 'valid@gmail.com';
-      const name = 'validname';
+      const email = 'jonjewik@gmail.com';
+      const name = 'jonjewik';
       const dob = '1';
-      const password = 'password';
+      const password = 'helpme';
 
       //simulate valid inputs
       wrapper.find('#email').simulate('change', { target: { value: email } });
@@ -141,10 +141,10 @@ describe('<BirthdayInput /> component', () => {
       const wrapper = mount(<App />);
 
       // valid form consts
-      const email = 'valid@gmail.com';
-      const name = 'validname';
+      const email = 'jonjewik@gmail.com';
+      const name = 'jonjewik';
       const dob = '1';
-      const password = 'password';
+      const password = 'helpme';
 
       //simulate valid inputs
       wrapper.find('#email').simulate('change', { target: { value: email } });
