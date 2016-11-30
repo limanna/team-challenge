@@ -52,3 +52,27 @@ describe('email input', () => {
 
 
 
+describe('name input', () => {
+  it('should show error if textbox is empty', () => {
+    const wrapper = shallow(<RequiredInput field={"name"} value={''} errorMessage={"we need to know your name"} />);
+    expect(wrapper.find('.error-missing').text()).toEqual("we need to know your name");
+
+  });
+
+  it('should not show error if textbox isnt empty', () => {
+    const wrapper = shallow(<RequiredInput field={"name"} value={'Nemo'} />);
+    expect(wrapper.find('.error-missing').length).toEqual(0);
+
+  });
+
+  it('should call updateParent', () => {
+    const spy = sinon.spy();
+    const wrapper = shallow(<RequiredInput id="name" field="name" type="text"
+          label="Name" placeholder="your name"
+          errorMessage="we need to know your name"
+          value={''}
+          updateParent={spy}/>);
+    wrapper.find('#name').simulate('change', {target:{value: 'Dory'}});
+    expect(spy.called).toEqual(true);
+  });
+});
